@@ -8,6 +8,14 @@ cask "revda" do
   desc "Revda media player"
   homepage "https://github.com/MrAru/revda-macos-build"
 
+  depends_on formula: "ffmpeg"
+  depends_on cask: "mpv"
+  
   app "revda.app"
   binary "#{appdir}/revda.app/Contents/MacOS/dmlive"
+
+  postflight do
+    system_command "xattr", args: ["-rd", "com.apple.quarantine", "#{appdir}/revda.app"]
+    system_command "codesign", args: ["--force", "--deep", "--sign", "-", "#{appdir}/revda.app"]
+  end
 end
