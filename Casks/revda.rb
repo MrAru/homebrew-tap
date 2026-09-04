@@ -1,7 +1,7 @@
 # Casks/revda.rb
 cask "revda" do
-  version "2026.08.31-d3aac92"
-  sha256 "ff9003468c871ac47ddaa5f24e0c209d47b7f00b84c98293ba25a2b0359d89f8"
+  version "2026.09.04-dc88520"
+  sha256 "197e67ad3f51af83e32feed645489db654ec40bdbdafffce55a4e98caab6f1d9"
 
   url "https://github.com/MrAru/revda-macos-build/releases/download/#{version}/Revda-macOS-aarch64.dmg"
   name "Revda"
