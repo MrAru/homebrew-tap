@@ -13,9 +13,9 @@ cask "revda" do
   app "revda.app"
   binary "#{appdir}/revda.app/Contents/MacOS/dmlive"
 
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-rd", "com.apple.quarantine", "#{appdir}/revda.app"]
-    system_command "/usr/bin/codesign", args: ["--force", "--deep", "--sign", "-", "#{appdir}/revda.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-rd", "com.apple.quarantine", "{{appdir}}/revda.app"]
+    run "/usr/bin/codesign", args: ["--force", "--deep", "--sign", "-", "{{appdir}}/revda.app"]
   end
 
   caveats <<~EOS
